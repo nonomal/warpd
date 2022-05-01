@@ -39,26 +39,26 @@ size_t generate_hints(screen_t scr, struct hint *hints)
 
 	screen_get_dimensions(scr, &sw, &sh);
 
-        /* hint_size corresponds to the percentage of column/row space
-         * taken up by the hints. At the cost of including math.h, one
-         * could replace cfg->hint-size / 100 by its square root, so
-         * that hint_size corresponds to the approximate percentage of
-         * screen area taken up by the hints
-         */
+	/* hint_size corresponds to the percentage of column/row space
+	 * taken up by the hints. At the cost of including math.h, one
+	 * could replace cfg->hint-size / 100 by its square root, so
+	 * that hint_size corresponds to the approximate percentage of
+	 * screen area taken up by the hints
+	 */
 
-        const int w = sw / nc * cfg->hint_size / 100;
-        const int h = sh / nr * cfg->hint_size / 100;
+	const int w = sw / nc * cfg->hint_size / 100;
+	const int h = sh / nr * cfg->hint_size / 100;
 
-        const int colgap = sw / nc - w;
-        const int rowgap = sh / nr - h;
+	const int colgap = sw / nc - w;
+	const int rowgap = sh / nr - h;
 
-        const int x_offset = (sw - nc * w - (nc - 1) * colgap) / 2;
-        const int y_offset = (sh - nr * h - (nr - 1) * rowgap) / 2;
+	const int x_offset = (sw - nc * w - (nc - 1) * colgap) / 2;
+	const int y_offset = (sh - nr * h - (nr - 1) * rowgap) / 2;
 
-        int x = x_offset;
-        int y = y_offset;
+	int x = x_offset;
+	int y = y_offset;
 
-        for (i = 0; i < nc; i++) {
+	for (i = 0; i < nc; i++) {
 		for (j = 0; j < nr; j++) {
 			struct hint *hint = &hints[n++];
 
